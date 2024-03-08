@@ -1,0 +1,30 @@
+import streamlit as st
+from PIL import Image
+import numpy as np
+
+
+# 設置封面標題和子標題
+st.title("圖片辨識網站")
+st.subheader("透過機器學習辨識圖片")
+
+# 封面圖片
+# cover_image = Image.open("cover_image.jpg")
+#st.image(cover_image, caption="圖片來源：Unsplash", use_column_width=True)
+
+# 添加封面文字描述
+st.write("""
+這是一個圖片辨識網站，利用機器學習模型辨識圖片中的物體。
+您可以上傳圖片，我們將使用預先訓練的模型對其進行分類，並顯示辨識結果。
+""")
+
+# 圖片上傳功能
+uploaded_image = st.file_uploader("上傳一張圖片", type=["jpg", "png", "jpeg"])
+
+# 顯示上傳的圖片
+if uploaded_image is not None:
+    image = Image.open(uploaded_image)
+    st.image(image, caption="上傳的圖片", use_column_width=True)
+
+    # 圖片辨識功能
+    st.write("圖片辨識結果：")
+    # 在這裡添加圖片辨識的程式碼，例如使用預先訓練的機器學習模型進行辨識
